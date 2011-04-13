@@ -2,8 +2,8 @@ var wikiResults = $(".l[href*='en.wikipedia.org/wiki/']");
 wikiResults.each(function(index) {
     chrome.extension.sendRequest({
         'action' : 'getLocalName', 
-        'title': $(this).attr("href").replace("http://en.wikipedia.org/wiki/", ""), 
-        'lang': 'ta'}, 
+        'title': $(this).attr("href").replace("http://en.wikipedia.org/wiki/", "")
+    }, 
         function(link) { appendLinks(wikiResults[index], link);} );
 });
 

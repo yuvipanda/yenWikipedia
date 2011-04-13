@@ -6,6 +6,8 @@
     "permissions": [
         "http://en.wikipedia.org/w/api.php"
         ],
+    "background_page": "background.html",
+    "options_page": "options.html",
     "content_scripts": [
             {
                 "matches": [
@@ -199,6 +201,5 @@
                 "css": ["style.css"],
                 "js": ["jquery-1.5.2.min.js", "injector.js"]
             }
-        ],
-    "background_page": "background.html"
+        ]
 }
