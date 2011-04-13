@@ -1,6 +1,6 @@
 {
     "name": "YenWikipedia",
-    "version": "0.1.9",
+    "version": "0.1.9.1",
     "description": "Provides links to other language wikipedias in google search results",
     "icons": { "128": "tempLogo.png" },
     "permissions": [
