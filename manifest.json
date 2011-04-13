@@ -7,7 +7,10 @@
         ],
     "content_scripts": [
             {
-                "matches": ["http://www.google.co.in/*"],
+                "matches": [
+                    "http://www.google.co.in/search*",
+                    "http://www.google.com/search*"
+                ],
                 "css": ["style.css"],
                 "js": ["jquery-1.5.2.min.js", "injector.js"]
             }
