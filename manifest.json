@@ -1,0 +1,16 @@
+{
+    "name": "YenPedia",
+    "version": "0.1",
+    "description": "Provides links to other language wikipedias in google search results",
+    "permissions": [
+        "http://en.wikipedia.org/w/api.php"
+        ],
+    "content_scripts": [
+            {
+                "matches": ["http://www.google.co.in/*"],
+                "css": ["style.css"],
+                "js": ["jquery-1.5.2.min.js", "injector.js"]
+            }
+        ],
+    "background_page": "background.html"
+}
