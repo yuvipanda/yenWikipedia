@@ -35,8 +35,21 @@ label {
     margin-top:5px;
 }
 
+#otherChoices {
+    margin-top:100px;
+    height: 100px;
+}
+
+#otherChoices > a {
+    margin-right: 100px;
+}
+
+#otherEntry {
+    display: None;
+}
+
 #footer {
-    margin-top: 500px;
+    margin-top: 200px;
     color: DarkGrey;
     text-align: Center;
 }

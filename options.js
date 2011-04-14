@@ -20,5 +20,17 @@ $(document).ready(function() {
     });
     $("#" + lang).attr("checked", "checked").button("refresh");
     $("label").removeClass("ui-corner-left").removeClass("ui-corner-right");
+
+    $("#showOther").click(function() {
+        if ($("#showOther").text() == "Hide") {
+            $("#otherEntry").fadeOut(function() {
+                $("#showOther").text("Other Language?");
+            });
+        } else {
+            $("#otherEntry").fadeIn(function() {
+            $("#showOther").text("Hide");
+            });
+        }
+    });
     $("#container").fadeIn();
 });
