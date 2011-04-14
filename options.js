@@ -1,5 +1,5 @@
 function appendOption(container, language) {
-    $(container).append("<input type='radio' name='longradio' id='" + language.code + "' /> <label for='" + language.code + "' title='" + language.title + "'>" + language.name + "</label>");
+    $(container).append("<input type='radio' name='longradio' id='" + language.code + "' value='" + language.name + "' /> <label for='" + language.code + "' title='" + language.title + "'>" + language.name + "</label>");
 }
 $(document).ready(function() {
     $.each(primaryIndicLanguages, function(i, v) {
@@ -13,6 +13,10 @@ $(document).ready(function() {
     $(".choiceSet input[type='radio']").change(function() {
         lang = $(this).attr('id');
         localStorage["language"] = lang;
+        $("#notice").clearQueue();
+        $("#notice").text("Language changed to " + $(this).attr('value') + "");
+
+        $("#notice").fadeIn().delay(3000).fadeOut();
     });
     $("#" + lang).attr("checked", "checked").button("refresh");
 });
