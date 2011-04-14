@@ -40,8 +40,9 @@ label {
     height: 100px;
 }
 
-#otherChoices > a {
-    margin-right: 100px;
+#showOther {
+    padding: 5px;
+    width: 150px;
 }
 
 #otherEntry {
