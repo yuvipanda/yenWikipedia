@@ -19,4 +19,5 @@ $(document).ready(function() {
         $("#notice").fadeIn().delay(3000).fadeOut();
     });
     $("#" + lang).attr("checked", "checked").button("refresh");
+    $("label").removeClass("ui-corner-left").removeClass("ui-corner-right");
 });
