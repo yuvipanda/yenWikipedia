@@ -1,0 +1,13 @@
+* {
+    font-size: 12pt;
+}
+#container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 760px;
+}
+
+#choiceSet  label {
+    width: 100px;
+    font: inherit;
+}

@@ -1,11 +1,25 @@
 <html>
-    <head>
+    <head>        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>yenWikipedia Options</title>
         <script type="text/javascript" src="jquery-1.5.2.min.js"> </script>
+        <script type="text/javascript" src="ui/js/jquery-ui-1.8.11.custom.min.js"> </script>
+        <link type="text/css" href="ui/css/pepper-grinder/jquery-ui-1.8.11.custom.css" rel="stylesheet" />	
+
+        <link type="text/css" href="options.css" rel="stylesheet" />
+        <script type="text/javascript" src="languages.js"> </script>
         <script type="text/javascript" src="options.js"> </script>
     </head>
+    <body>
+        <div id="container">
+            <form>
+                <div class='choiceSet' id="primaryIndicChoices">
+                </div>
+                <div class='choiceSet' id="secondaryIndicChoices">
+                </div>
+                
+            </form>
+        </div>
 
-    Your Language's <a href="http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-1 Code</a>: <input id="lang" />
-    <br />
-    <a href="#" id="save">Save</a>
+    </body>
 </html>
