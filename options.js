@@ -20,4 +20,5 @@ $(document).ready(function() {
     });
     $("#" + lang).attr("checked", "checked").button("refresh");
     $("label").removeClass("ui-corner-left").removeClass("ui-corner-right");
+    $("#container").fadeIn();
 });
