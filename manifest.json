@@ -12,7 +12,7 @@
             {
                 "matches": [
                 "https://encrypted.google.com/search*",
-                "http://www.google.com/search*",
+                "http://www.google.com/*",
                 "http://www.google.ad/search*",
                 "http://www.google.ae/search*",
                 "http://www.google.com.af/search*",
