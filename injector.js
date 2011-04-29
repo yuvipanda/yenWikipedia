@@ -7,8 +7,6 @@ function doReplace() {
         }, 
         function(data) { appendLinks(wikiResults[index], data.title, data.lang);} );
     });
-
-        console.log('hi');
 }
 
 function appendLinks(element, data, lang) {
@@ -40,11 +38,29 @@ function throttle(call, timeout) {
 };
 
 var throttledDoReplace = throttle(doReplace, 500);
+var throttledInitEvents = throttle(initEvents, 500);
+var mainBound = false;
+
 $(document).ready(function() {
+    console.log($("#search").length);
+    if(! $("#search").length) {
+        mainBound = true;
+        $("#main").bind('DOMSubtreeModified', throttledInitEvents);
+    }
+    else {
+        initEvents();
+    }
+});
+
+function initEvents() {
+    if (mainBound) {
+        $("#main").unbind("DOMSubtreeModified", throttledInitEvents);
+    }
     $('#search').bind('DOMSubtreeModified', function() {
         throttledDoReplace();
+        console.log("heya");
     });
 
     // Initial call, to handle first load
     doReplace();
-});
+}
