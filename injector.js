@@ -37,15 +37,23 @@ function throttle(call, timeout) {
     return my;
 };
 
+function bindInstant() {
+    if ($("#search").length) {
+        initEvents();
+    }    
+}
+
 var throttledDoReplace = throttle(doReplace, 500);
-var throttledInitEvents = throttle(initEvents, 500);
+var throttledbindInstant = throttle(bindInstant, 500);
 var mainBound = false;
+
+
 
 $(document).ready(function() {
     console.log($("#search").length);
     if(! $("#search").length) {
         mainBound = true;
-        $("#main").bind('DOMSubtreeModified', throttledInitEvents);
+        $("#main").bind('DOMSubtreeModified', throttledbindInstant);
     }
     else {
         initEvents();
@@ -54,7 +62,7 @@ $(document).ready(function() {
 
 function initEvents() {
     if (mainBound) {
-        $("#main").unbind("DOMSubtreeModified", throttledInitEvents);
+        $("#main").unbind("DOMSubtreeModified", bindInstant);
     }
     $('#search').bind('DOMSubtreeModified', function() {
         throttledDoReplace();
