@@ -21,3 +21,9 @@ function onRequest(request, sender, callback) {
 };
 
 chrome.extension.onRequest.addListener(onRequest);
+
+if (! localStorage['firstRun']) {
+chrome.tabs.create({url:"options.html"});
+localStorage['firstRun'] = 'true';
+}
+
