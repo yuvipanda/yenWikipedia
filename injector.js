@@ -1,3 +1,12 @@
+// Note: Somewhat frankencode. Organically grown mess. Need to refactor
+var GOOGLE="google", DUCKDUCKGO="duckduckgo", UNKNOWN="unknown";
+function getSearchEngine() {
+    if (window.location.host.match(/www\.google\./)) {
+        return GOOGLE;
+    } else if (window.location.host.match(/duckduckgo\.com/)) {
+        return DUCKDUCKGO;
+    }
+}
 function doReplace() {
     var wikiResults = $(".l[href*='en.wikipedia.org/wiki/']");
     wikiResults.each(function(index) {
@@ -47,13 +56,27 @@ var throttledDoReplace = throttle(doReplace, 500);
 var throttledbindInstant = throttle(bindInstant, 500);
 var mainBound = false;
 
-
+var currentEngine = getSearchEngine();
+var searchBody, main;
+var sitePrefix;
 
 $(document).ready(function() {
-    console.log($("#search").length);
-    if(! $("#search").length) {
+    if (currentEngine == GOOGLE) {
+        searchBody = "#search";
+        main = "#main";
+    } else if (currentEngine == DUCKDUCKGO) {
+        searchBody = "#r12w";
+        main = "#c2";
+    }
+    // They don't really do anything, yet. Support for Secure?
+    if (window.location.protocol == 'http:') {
+        sitePrefix = 'http://en.wikipedia.org/';
+    } else if (window.location.protocol == 'https:') {
+        sitePrefix = 'https://secure.wikimedia.org/wikipedia/en/';
+    }
+    if(! $(searchBody).length) {
         mainBound = true;
-        $("#main").bind('DOMSubtreeModified', throttledbindInstant);
+        $(main).bind('DOMSubtreeModified', throttledbindInstant);
     }
     else {
         initEvents();
@@ -62,9 +85,9 @@ $(document).ready(function() {
 
 function initEvents() {
     if (mainBound) {
-        $("#main").unbind("DOMSubtreeModified", bindInstant);
+        $(main).unbind("DOMSubtreeModified", bindInstant);
     }
-    $('#search').bind('DOMSubtreeModified', function() {
+    $(searchBody).bind('DOMSubtreeModified', function() {
         throttledDoReplace();
         console.log("heya");
     });

@@ -1,6 +1,6 @@
 {
     "name": "My Language Wikipedia",
-    "version": "0.6",
+    "version": "0.7",
     "description": "Provides links to other language wikipedias in google search results",
     "icons": { "128": "tempLogo.png" },
     "permissions": [
@@ -11,6 +11,7 @@
     "content_scripts": [
             {
                 "matches": [
+                "http://duckduckgo.com/?q=*",
                 "https://encrypted.google.com/",
                 "http://www.google.com/",
                 "http://www.google.ad/",
