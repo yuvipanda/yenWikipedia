@@ -19,6 +19,9 @@ function doReplace() {
 }
 
 function appendLinks(element, data, lang) {
+    if(!data) {
+        return;
+    }
     var dataAttrib = "data-wiki-" + lang;
     if (! $(element).attr(dataAttrib)) {
         $(element).attr(dataAttrib, 'data');
