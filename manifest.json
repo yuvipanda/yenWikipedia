@@ -1,6 +1,6 @@
 {
     "name": "My Language Wikipedia",
-    "version": "0.8",
+    "version": "0.9.1",
     "description": "Provides links to other language wikipedias in google search results",
     "icons": { "128": "tempLogo.png" },
     "permissions": [
