@@ -89,7 +89,6 @@ function initEvents() {
     }
     $(searchBody).bind('DOMSubtreeModified', function() {
         throttledDoReplace();
-        console.log("heya");
     });
 
     // Initial call, to handle first load
